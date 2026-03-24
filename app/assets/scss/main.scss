@@ -79,8 +79,19 @@ h2 {
 
 .timeline__header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
   gap: 12px;
+
+  .company_type {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
 }
 
 .timeline__header span {

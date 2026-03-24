@@ -11,7 +11,8 @@
       <ul class="timeline">
         <li v-for="career in careers" :key="career.company" class="timeline__item">
           <div class="timeline__header">
-            <strong>{{ career.company }}</strong>
+            <span class="company_type">{{ career.type }}</span>
+            <p>{{ career.company }}</p>
             <span>{{ career.period }}</span>
           </div>
           <p>{{ career.role }}</p>
@@ -36,6 +37,7 @@
 
 <script setup lang="ts">
 interface Career {
+  type: string
   company: string
   role: string
   period: string
@@ -55,12 +57,14 @@ const profile = {
 
 const careers: Career[] = [
   {
-    company: 'In-house 천재교육',
+    type: 'In-house',
+    company: '천재교육',
     role: 'Web Publisher / Frontend Developer',
     period: '2024.10 - 재직중'
   },
   {
-    company: 'Agency 한국홍보디자인세터',
+    type: 'Agency',
+    company: '한국홍보디자인세터',
     role: 'Web Publisher / Web Designer',
     period: '2023.07 - 2024.10'
   }
