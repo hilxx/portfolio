@@ -1,42 +1,17 @@
-:root {
-  color-scheme: light;
-  --bg: #f8fafc;
-  --text: #0f172a;
-  --muted: #475569;
-  --card: #ffffff;
-  --border: #e2e8f0;
-  --accent: #2563eb;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
+@use 'base/reset' as *;
+@use 'abstracts/variable' as *;
+//@use 'components/components' as *;
+//@use 'pages/pages' as *;
+// @use 'layouts/layouts' as *;
 
 .portfolio {
-  max-width: 960px;
+  max-width: 90rem;
   margin: 0 auto;
-  padding: 72px 20px 96px;
+  padding: 7rem 2rem 9rem;
 }
 
 .section + .section {
-  margin-top: 56px;
-}
-
-h1,
-h2,
-h3,
-p {
-  margin: 0;
+  margin-top: 5.6rem;
 }
 
 h1 {
@@ -46,18 +21,18 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 .hero__eyebrow {
-  color: var(--accent);
+  color: var(--hilee-accent);
   font-weight: 700;
   margin-bottom: 8px;
 }
 
 .hero__summary {
   margin-top: 16px;
-  color: var(--muted);
+  color: var(--hilee-muted);
   max-width: 680px;
 }
 
@@ -71,8 +46,8 @@ h2 {
 
 .timeline__item,
 .project-card {
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: var(--hilee-card);
+  border: 1px solid var(--hilee-border);
   border-radius: 12px;
   padding: 18px;
 }
@@ -84,7 +59,7 @@ h2 {
   gap: 12px;
 
   .company_type {
-    color: var(--accent);
+    color: var(--hilee-accent);
     font-weight: 500;
   }
 
@@ -95,8 +70,8 @@ h2 {
 }
 
 .timeline__header span {
-  color: var(--muted);
-  font-size: 0.95rem;
+  color: var(--hilee-muted);
+  font-size: 1.2rem;
 }
 
 .projects {
@@ -107,7 +82,7 @@ h2 {
 
 .project-card p {
   margin-top: 8px;
-  color: var(--muted);
+  color: var(--hilee-muted);
 }
 
 .project-card ul {
@@ -120,7 +95,7 @@ h2 {
 }
 
 .project-card li {
-  border: 1px solid var(--border);
+  border: 1px solid var(--hilee-border);
   border-radius: 999px;
   padding: 4px 10px;
   font-size: 0.85rem;

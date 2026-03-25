@@ -1,0 +1,119 @@
+// clip: rect(0, 0, 0, 0); 권장되지 않음
+%visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip-path: polygon(0 0, 0 0, 0 0);
+    overflow: hidden;
+    padding: 0;
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  %sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    clip-path: inset(100%);
+  }
+  
+  %no-text {
+    color: transparent;
+    font-size: 1px;
+    line-height: 0;
+  }
+  
+  %append-dot {
+    flex-basis: 100%;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+  
+    &:before {
+      content: "";
+      display: inline-block;
+      margin: 0 0.6rem 0 -1rem;
+      width: 0.4rem;
+      height: 0.4rem;
+      vertical-align: middle;
+      background: var(--hilee-gray-6);
+      border-radius: 50%;
+    }
+  }
+  
+  %custom-scrollbar {
+    &::-webkit-scrollbar {
+      width: 0.3rem;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: rgba(38, 38, 38, 0.1);
+    }
+  
+    &::-webkit-scrollbar-track {
+      background: var(--hilee-white);
+    }
+  }
+  
+  %c-dropdown {
+    // 드롭박스
+    .p-dropdown-label {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      -webkit-box-orient: vertical;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+  
+    // 드롭박스 패널
+    .p-dropdown-items-wrapper {
+      .p-dropdown-items {
+        .p-dropdown-item {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          white-space: normal;
+          line-height: 1.4;
+          color: var(--hilee-gray-6);
+          &.p-disabled {
+            pointer-events: auto;
+            cursor: pointer;
+  
+            &.lock-disabled {
+              pointer-events: none;
+              cursor: default;
+            }
+          }
+        }
+      }
+      .p-dropdown-items li.p-dropdown-item {
+        border-top: 1px solid var(--hilee-gray-3);
+  
+        &.p-highlight {
+          .option-name {
+            color: var(--hilee-primary);
+          }
+        }
+        &:first-child {
+          border-top: none;
+        }
+        &.p-disabled {
+          background-color: var(--hilee-gray-2);
+  
+          .option-name.disabled {
+            pointer-events: none;
+            color: var(--hilee-gray-6);
+          }
+        }
+      }
+    }
+  }
+  

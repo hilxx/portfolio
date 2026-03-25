@@ -2,5 +2,15 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  css: ['~/assets/scss/main.scss']
+  css: ['@/assets/scss/main.scss'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // 전역으로 사용할 scss 파일 
+        additionalData: '@use "@/assets/scss/abstracts.scss" as *;'
+        }
+      }
+    }
+  },
 })

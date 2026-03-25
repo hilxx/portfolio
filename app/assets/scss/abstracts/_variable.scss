@@ -1,0 +1,84 @@
+// ##############################
+// #  color variable
+// ################################
+
+$prefix: "hilee";
+
+$default-color: (
+  "white": #fff,
+  "black": #121212,
+  gray-1: #fcfcfc,
+  gray-2: #f7f7f7,
+  gray-3: #e4e4e4,
+  gray-4: #dddddd,
+  gray-5: #999999,
+  gray-6: #666666,
+  gray-7: #555555,
+  gray-8: #2e2e2e,
+
+  blue-1: #1b64eb,
+  blue-2: #0c47b6,
+  blue-3: #ddf5ff,
+  blue-4: #f3fbff,
+  blue-5: #ecf8ff,
+  blue-6: #1c58c8,
+  blue-7: #0038a0,
+  blue-8: #e2ecff,
+  blue-9: #edf4ff,
+  blue-10: #2d3742,
+  blue-11: #1c55be,
+  blue-12: #f1f6ff,
+  blue-13: #c7eaff,
+
+  purple-1: #721beb,
+  purple-2: #520cb6,
+  purple-3: #f3eaff,
+  purple-4: #f6f3ff,
+  purple-5: #f4ecff,
+  purple-6: #5e3fda,
+  purple-7: #3a2ba7,
+  purple-8: #eeeaff,
+  purple-9: #f5f3ff,
+  purple-10: #efecff,
+  purple-11: #9e28ff,
+
+  red1: #ec0043,
+
+  pink1: #d9288d,
+  pink2: #ff4a8e,
+
+  orange1: #ffb534,
+  orange2: #ff7f00,
+  orange3: #fff2f4,
+  orange4: #fff3de,
+  orange5: #fff9eb,
+
+  green1: #1c873a,
+  green2: #008857,
+  green3: #effaf6,
+  green4: #178602,
+  green5: #00b24d
+);
+
+$semantic-color: (
+  "bg": #f8fafc,
+  "text": #0f172a,
+  "muted": #475569,
+  "card": #ffffff,
+  "border": #e2e8f0,
+  "accent": #2563eb,
+);
+
+// CSS 변수 정의 (전역으로 넣으면 안됨 > main.scss에 연결)
+:root {
+  // default 컬러
+  @each $key, $value in $default-color {
+    //색상값 map key로 사용시 문자열(string) 명시
+    --#{$prefix}-#{"" + $key}: #{$value};
+  }
+
+  // semantic 컬러
+  @each $key, $value in $semantic-color {
+    --#{$prefix}-#{$key}: #{$value};
+  }
+}

@@ -1,0 +1,272 @@
+@use "sass:math";
+/* ##############################
+# common mixin
+################################*/
+
+// media query
+// sm: ~1039 (테블릿 작업시 적용)
+// md: ~1199
+// lg: ~1600
+// xl: 1601~
+
+@mixin lg {
+  @media (max-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: 1039px) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+// text eillipse
+@mixin ellipsis($line-cnt: 1, $line-height: 1.4) {
+  @if ($line-cnt ==1) {
+    white-space: nowrap;
+    word-break: keep-all;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $line-cnt;
+    /* 라인수 */
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    //max-height: #{$line-height * $line-cnt};
+    line-height: $line-height;
+  }
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Display
+@mixin flex($flex: flex, $align: center, $justify: flex-start, $direction: row, $wrap: wrap) {
+  display: $flex;
+  flex-wrap: $wrap;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin fixed($args...) {
+  @include position(fixed, $args...);
+}
+
+@mixin absolute($args...) {
+  @include position(absolute, $args...);
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// font style
+@mixin font-style($size: 1rem, $weight: null, $color: null, $lineHeight: null) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  line-height: $lineHeight;
+}
+
+// primevue
+@mixin input {
+  @include font-style(1.6rem, 500, var(--hilee-black));
+  @include flex;
+  width: 100%;
+  height: 4rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--hilee-gray-5);
+  background: var(--hilee-white);
+  padding: 0.9rem 1.4rem;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: var(--hilee-gray-5);
+  }
+
+  &:disabled {
+    background-color: var(--hilee-gray-2) !important;
+    border: 1px solid var(--hilee-gray-4) !important;
+    color: var(--hilee-gray-5) !important;
+    pointer-events: none;
+  }
+}
+
+@mixin class-dropdown {
+  @include gap(0.4rem);
+  height: 4.8rem;
+  border: none;
+  // min-width: 15.2rem;
+
+  width: fit-content;
+  padding: 0;
+
+  .p-dropdown-trigger {
+    width: 3.2rem;
+    position: relative;
+
+    & > svg {
+      display: none;
+    }
+
+    &:before {
+      display: block;
+      position: absolute;
+      // border: 1px solid #ddd;
+      content: "";
+      border-radius: 50%;
+      background: url(/@img/ico/ico_arrow_down2.svg) no-repeat;
+      width: 2.4rem;
+      height: 2.4rem;
+      background-position: center;
+    }
+  }
+
+  .p-dropdown-label {
+    @include flex;
+    @include gap(1.2rem);
+    // min-width: 13.8rem;
+  }
+
+  .selected {
+    @include flex;
+    @include gap(0.8rem);
+    width: fit-content;
+
+    .name {
+      color: $black;
+    }
+  }
+}
+
+@mixin tag {
+  min-width: 5.6rem;
+  padding: 0 1.6rem;
+  min-height: 3rem;
+  background: $white;
+  color: $primary2;
+  border: 1px solid $primary2;
+
+  &.disabled {
+    border: 1px solid #999;
+    color: $gray3;
+  }
+}
+
+// Display
+$pc-width-min: 1420px;
+$pc-width-max: 1800px;
+$mo-width-min: 708px;
+$mo-width-max: 1380px;
+
+$tablet: 768px;
+$note: 1024px;
+$tabletLg: 1140px;
+$laptop: 1200px;
+$desktop: 1420px;
+
+@mixin mobile {
+  @media (max-width: ($tablet - 1)) {
+    @content;
+  }
+}
+
+@mixin hometab {
+  @media (max-width: ($note - 1)) {
+    @content;
+  }
+}
+
+@mixin note {
+  @media (min-width: ($note)) and (max-width: ($desktop - 1)) {
+    @content;
+  }
+}
+
+@mixin tablet-sm {
+  @media (max-width: ($tabletLg - 1)) {
+    @content;
+  }
+}
+
+@mixin tablet-lg {
+  @media (min-width: ($tabletLg)) and (max-width: ($desktop - 1)) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: ($laptop)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: ($desktop - 1)) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+// UDL focus
+@mixin focus-outline {
+  body.user-is-tabbing & {
+    outline: 0.3rem dashed #000 !important;
+  }
+}
+
+@mixin focus-shadow {
+  outline: none !important;
+  background-image:
+    repeating-linear-gradient(to right, #000 0 0.3rem, transparent 0.6rem 0.9rem),
+    /* top */ repeating-linear-gradient(to right, #000 0 0.3rem, transparent 0.6rem 0.9rem),
+    /* bottom */ repeating-linear-gradient(to bottom, #000 0 0.3rem, transparent 0.6rem 0.9rem),
+    /* left */ repeating-linear-gradient(to bottom, #000 0 0.3rem, transparent 0.6rem 0.9rem) !important;
+  /* right */
+  background-size:
+    100% 0.3rem,
+    100% 0.3rem,
+    0.3rem 100%,
+    0.3rem 100% !important;
+  background-position:
+    top left,
+    bottom left,
+    top left,
+    top right !important;
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y !important;
+}
