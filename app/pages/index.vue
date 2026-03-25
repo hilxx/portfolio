@@ -22,20 +22,36 @@
 
     <section class="section">
       <h2>프로젝트</h2>
-      <div class="projects">
-        <article v-for="project in projects" :key="project.title" class="project-card">
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
-          <ul>
-            <li v-for="tech in project.techStack" :key="tech">{{ tech }}</li>
-          </ul>
-        </article>
-      </div>
+      <Swiper
+        class="projects-carousel"
+        :modules="[Navigation]"
+        :slides-per-view="4"
+        :space-between="12"
+        :slides-per-group="1"
+        :navigation="true"
+        :breakpoints="breakpoints"
+      >
+        <SwiperSlide v-for="project in projects" :key="project.title">
+          <article class="project-card">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <ul>
+              <li v-for="tech in project.techStack" :key="tech">{{ tech }}</li>
+            </ul>
+          </article>
+        </SwiperSlide>
+      </Swiper>
     </section>
   </main>
 </template>
 
 <script setup lang="ts">
+import 'swiper/css'
+import 'swiper/css/navigation'
+
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation } from 'swiper/modules'
+
 interface Career {
   type: string
   company: string
@@ -85,8 +101,35 @@ const projects: Project[] = [
     title: '스타일 리팩토링을 통한 전체 프로젝트 유지보수/운영에 생산성 기여',
     description: 'AI 디지털 교과서 플랫폼 1차 운영 및 유지보수 / 2차 구축 프로젝트 참여하면서 웹 접근성에 기여',
     techStack: ['Vue', 'Pinia', 'SCSS', 'Nuxt', 'TypeScript']
+  },
+  {
+    title: '스타일 리팩토링을 통한 전체 프로젝트 유지보수/운영에 생산성 기여',
+    description: 'AI 디지털 교과서 플랫폼 1차 운영 및 유지보수 / 2차 구축 프로젝트 참여하면서 웹 접근성에 기여',
+    techStack: ['Vue', 'Pinia', 'SCSS', 'Nuxt', 'TypeScript']
+  },
+  {
+    title: '스타일 리팩토링을 통한 전체 프로젝트 유지보수/운영에 생산성 기여',
+    description: 'AI 디지털 교과서 플랫폼 1차 운영 및 유지보수 / 2차 구축 프로젝트 참여하면서 웹 접근성에 기여',
+    techStack: ['Vue', 'Pinia', 'SCSS', 'Nuxt', 'TypeScript']
+  },
+  {
+    title: '스타일 리팩토링을 통한 전체 프로젝트 유지보수/운영에 생산성 기여',
+    description: 'AI 디지털 교과서 플랫폼 1차 운영 및 유지보수 / 2차 구축 프로젝트 참여하면서 웹 접근성에 기여',
+    techStack: ['Vue', 'Pinia', 'SCSS', 'Nuxt', 'TypeScript']
+  },
+  {
+    title: '스타일 리팩토링을 통한 전체 프로젝트 유지보수/운영에 생산성 기여',
+    description: 'AI 디지털 교과서 플랫폼 1차 운영 및 유지보수 / 2차 구축 프로젝트 참여하면서 웹 접근성에 기여',
+    techStack: ['Vue', 'Pinia', 'SCSS', 'Nuxt', 'TypeScript']
   }
 ]
+
+// 반응형: 기본 4개, 모바일에서 2/1개로 변경
+const breakpoints = {
+  0: { slidesPerView: 1 },
+  640: { slidesPerView: 2 },
+  1024: { slidesPerView: 4 }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -68,10 +68,8 @@
     font-size: 1.2rem;
   }
   
-  .projects {
-    display: grid;
-    gap: 12px;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  .projects-carousel {
+    width: 100%;
   }
   
   .project-card p {
