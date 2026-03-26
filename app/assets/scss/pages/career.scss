@@ -1,0 +1,148 @@
+@use "@/assets/scss/abstracts/_mixin.scss" as *;
+
+// 경력 페이지
+.company {
+  .intro__tag {
+    margin-bottom: 1rem;
+  }
+  &__intro {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    @include font-style(3.6rem, 600, var(--hilee-black), 1.2);
+    margin-bottom: 0.5rem;
+  }
+
+  &__period {
+    @include font-style(1rem, 500, var(--hilee-muted));
+  }
+
+  &__role {
+    &-list {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      li {
+        @include font-style(1rem, 500, #1e293b);
+        background: var(--hilee-white);
+        border: 1.4px solid var(--hilee-blue-13);
+        border-radius: 2rem;
+        padding: 0.2rem 1rem;
+
+        & + li {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+.summary-title {
+  margin-bottom: 1.2rem;
+  @include font-style(2rem, 600, var(--hilee-black), 1.2);
+}
+
+.summary-text {
+  max-width: 56rem;
+  border-left: 0.3rem solid var(--hilee-border);
+  padding: 0.4rem 0 0.4rem 1.4rem;
+  @include font-style(1.8rem, 400, var(--hilee-muted), 1.6);
+}
+
+.history-section {
+  position: relative;
+  padding-left: 3.2rem;
+  margin-bottom: 4rem;
+}
+
+.history-section::before {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  top: 1.4rem;
+  bottom: 1.4rem;
+  width: 0.2rem;
+  background: var(--hilee-border);
+}
+
+.history-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.history-dot {
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 0.2rem solid var(--hilee-border);
+  border-radius: 50%;
+  background: var(--hilee-card);
+}
+
+.history-title {
+  @include font-style(2rem, 600, var(--hilee-black), 1.2);
+}
+
+.history-list {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.history-card {
+  border: 1px solid var(--hilee-border);
+  border-radius: 0.8rem;
+  background: var(--hilee-card);
+  padding: 1.6rem;
+}
+
+.history-company {
+  display: inline-block;
+  min-width: 14rem;
+  border: 1px solid var(--hilee-border);
+  border-radius: 0.4rem;
+  padding: 0.4rem 1rem;
+  margin-bottom: 0.8rem;
+  @include font-style(1.6rem, 600, var(--hilee-black), 1.2);
+}
+
+.history-role {
+  @include font-style(1.5rem, 400, var(--hilee-muted), 1.5);
+}
+
+.history-date {
+  margin-top: 0.8rem;
+  @include font-style(1.4rem, 500, var(--hilee-black), 1.2);
+}
+
+.detail-section {
+  border: 1px solid var(--hilee-border);
+  border-radius: 0.8rem;
+  background: var(--hilee-card);
+  padding: 2rem;
+}
+
+.detail-title {
+  margin-bottom: 1.2rem;
+  @include font-style(1.8rem, 600, var(--hilee-black), 1.2);
+}
+
+.detail-list {
+  display: grid;
+  gap: 0.8rem;
+  padding-left: 1.6rem;
+  list-style: disc;
+}
+
+.detail-list li {
+  @include font-style(1.5rem, 400, var(--hilee-muted), 1.5);
+}
+
+@media (max-width: 1024px) {
+  .company-row {
+    grid-template-columns: 1fr;
+  }
+}
