@@ -1,12 +1,12 @@
 <template>
-  <main class="portfolio">
-    <section class="intro section">
-      <p class="intro__role">Frontend Developer</p>
-      <h1 class="intro__name">{{ profile.name }}</h1>
+  <main class="portfolio portfolio--main">
+    <section class="intro">
+      <p class="intro__tag">Frontend Developer</p>
+      <h1 class="intro__name">{{ profile.name }}:&#41;</h1>
       <p class="intro__summary">{{ profile.summary }}</p>
     </section>
 
-    <section class="career section">
+    <section class="career">
       <h2 class="section__title">경력</h2>
       <ul class="timeline">
         <li
@@ -14,19 +14,21 @@
           :key="career.company"
           class="timeline__item"
         >
-          <a :href="career.link" target="_blank">
+          <a :href="career.link" target="_blank" rel="noopener noreferrer">
             <div class="timeline__header">
               <span class="company_type">{{ career.type }}</span>
               <p>{{ career.company }}</p>
               <span>{{ career.period }}</span>
             </div>
-            <p>{{ career.role }}</p>
+            <ul>
+              <li v-for="role in career.role" :key="role">{{ role }}</li>
+            </ul>
           </a>
         </li>
       </ul>
     </section>
 
-    <section class="projects section">
+    <section class="projects">
       <h2 class="section__title">프로젝트</h2>
       <Swiper
         class="projects-carousel"
@@ -75,5 +77,6 @@ const breakpoints = {
 </script>
 
 <style lang="scss" scoped>
+@use "@/assets/scss/pages/common.scss";
 @use "@/assets/scss/pages/main.scss";
 </style>
