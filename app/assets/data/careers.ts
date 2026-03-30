@@ -17,6 +17,7 @@ export const careers: Career[] = [
     projects: [
       {
         title: "AI 디지털 교과서 플랫폼",
+        period: "2024.10 - 재직중",
         description:
           "AI 디지털 교과서 플랫폼 웹 접근성(KWCAG 2.2) 심사 통과 기여",
         techStack: ["Vue", "Pinia", "SCSS"],
@@ -30,6 +31,7 @@ export const careers: Career[] = [
       },
       {
         title: "AI 디지털 교과서 플랫폼",
+        period: "2024.10 - 재직중",
         description:
           "AI 디지털 교과서 플랫폼 웹 접근성(KWCAG 2.2) 심사 통과 기여",
         techStack: ["Vue", "Pinia", "SCSS"],
