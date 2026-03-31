@@ -4,8 +4,6 @@ export interface Career {
   role: string[];
   period: string;
   link: string;
-  summary: string;
-  summaryList: string[];
   projects: ProjectList[];
 }
 
