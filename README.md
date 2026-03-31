@@ -87,11 +87,11 @@ portfolio/
 │ │ ├── scss/
 │ │ ├── images/
 │ │ └── fonts/
-│ ├── data/ <-- [이동] 실제 데이터 (.ts)
+│ ├── data/ <-- 실제 데이터 (.ts)
 │ ├── types/ <-- 타입 정의 (.ts)
 │ ├── pages/ <-- index.vue, sub.vue
-│ ├── components/ <-- [추가] Header, Footer, Card 등 분리용
-│ ├── composables/ <-- [추가] 데이터 처리 로직 (Auto-import 활용)
+│ ├── components/ <-- Header, Footer, Card 등 분리용
+│ ├── composables/ <-- 데이터 처리 로직 (Auto-import 활용)
 │ └── App.vue
 └── public/ <-- 빌드 제외 정적 파일
 └── favicon.ico
