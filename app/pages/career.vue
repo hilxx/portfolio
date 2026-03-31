@@ -30,7 +30,8 @@
                 :ref="(el) => setTimelineItem(el, careerIndex, projectIndex)"
                 class="timeline-item"
                 :class="{
-                  'is-active': activeProjectKey === `${careerIndex}-${projectIndex}`,
+                  'is-active':
+                    activeProjectKey === `${careerIndex}-${projectIndex}`,
                 }"
               >
                 <div class="timeline-bullet"></div>
@@ -79,13 +80,13 @@
 </template>
 
 <script setup lang="ts">
-import { careers } from "~/assets/data/careers";
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import {careers} from "@/data/careers";
+import {ref, onMounted, onBeforeUnmount} from "vue";
 
 const activeProjectKey = ref("0-0"); // 초기값: 첫 회사, 첫 프로젝트
 const timelineRefs = ref<HTMLElement[]>([]);
 const setTimelineItem = (
-  el: Element | { $el?: Element } | null,
+  el: Element | {$el?: Element} | null,
   careerIdx: number,
   pIdx: number,
 ) => {
