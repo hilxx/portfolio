@@ -73,3 +73,25 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+# 구조
+
+## Nuxt 3의 표준 구조를 따르되, 확장성을 고려해 폴더를 세분화.
+
+- 데이터의 타입 정의(types)와 실제 콘텐츠(data)를 분리하여 유지보수성 ↑
+- 모든 정적 자산은 assets 폴더 내에서 관리하여 Vite의 빌드 최적화 효과 ↑
+
+portfolio/
+├── app/
+│ ├── assets/ <-- 빌드가 필요한 정적 자원
+│ │ ├── scss/
+│ │ ├── images/
+│ │ └── fonts/
+│ ├── data/ <-- [이동] 실제 데이터 (.ts)
+│ ├── types/ <-- 타입 정의 (.ts)
+│ ├── pages/ <-- index.vue, sub.vue
+│ ├── components/ <-- [추가] Header, Footer, Card 등 분리용
+│ ├── composables/ <-- [추가] 데이터 처리 로직 (Auto-import 활용)
+│ └── App.vue
+└── public/ <-- 빌드 제외 정적 파일
+└── favicon.ico
