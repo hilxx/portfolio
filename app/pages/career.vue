@@ -49,22 +49,59 @@
                     </div>
                   </div>
 
-                  <h2 class="role">{{ project.role.join(" / ") }}</h2>
+                  <div class="career-card__body">
+                    <h2 class="company-name">{{ project.title }}</h2>
 
-                  <div class="company-info">
-                    <span class="company-name">{{ project.title }}</span>
+                    <p class="summary">{{ project.summary }}</p>
+
+                    <ul class="bullet-list">
+                      <li
+                        v-for="(bullet, bIndex) in project.summaryList"
+                        :key="`${project.title}-${bIndex}`"
+                      >
+                        {{ bullet }}
+                      </li>
+                    </ul>
                   </div>
 
-                  <p class="summary">{{ project.summary }}</p>
-
-                  <ul class="bullet-list">
-                    <li
-                      v-for="(bullet, bIndex) in project.summaryList"
-                      :key="`${project.title}-${bIndex}`"
+                  <div class="career-card__footer">
+                    <button
+                      type="button"
+                      class="btn--more"
+                      :aria-expanded="isDetailOpen(careerIndex, projectIndex)"
+                      @click="toggleDetailOpen(careerIndex, projectIndex)"
                     >
-                      {{ bullet }}
-                    </li>
-                  </ul>
+                      {{
+                        isDetailOpen(careerIndex, projectIndex)
+                          ? "상세 업무 접기 ▲"
+                          : "상세 업무 더보기 ▼"
+                      }}
+                    </button>
+                  </div>
+
+                  <transition name="slide-fade">
+                    <div
+                      v-show="isDetailOpen(careerIndex, projectIndex)"
+                      class="career-detail-panel"
+                    >
+                      <div
+                        v-for="(detail, detailIndex) in project.details ?? []"
+                        :key="`${project.title}-detail-${detailIndex}`"
+                        class="detail-section"
+                      >
+                        <h3>{{ detail.title }}</h3>
+                        <p>{{ detail.contribution }}</p>
+                        <ul>
+                          <li
+                            v-for="(content, contentIndex) in detail.contents"
+                            :key="`${project.title}-detail-${detailIndex}-content-${contentIndex}`"
+                          >
+                            {{ content }}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </transition>
                 </div>
               </div>
             </div>
@@ -85,6 +122,22 @@ import {ref, onMounted, onBeforeUnmount} from "vue";
 
 const activeProjectKey = ref("0-0"); // 초기값: 첫 회사, 첫 프로젝트
 const timelineRefs = ref<HTMLElement[]>([]);
+
+const detailOpenByKey = ref<Record<string, boolean>>({});
+
+const detailKey = (careerIdx: number, projectIdx: number) =>
+  `${careerIdx}-${projectIdx}`;
+
+const isDetailOpen = (careerIdx: number, projectIdx: number) =>
+  !!detailOpenByKey.value[detailKey(careerIdx, projectIdx)];
+
+const toggleDetailOpen = (careerIdx: number, projectIdx: number) => {
+  const key = detailKey(careerIdx, projectIdx);
+  detailOpenByKey.value = {
+    ...detailOpenByKey.value,
+    [key]: !detailOpenByKey.value[key],
+  };
+};
 const setTimelineItem = (
   el: Element | {$el?: Element} | null,
   careerIdx: number,
