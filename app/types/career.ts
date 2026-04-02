@@ -11,11 +11,18 @@ export interface ProjectList {
   title: string;
   description: string;
   role: string[];
-  techStack: string[];
+  techStack: TechStackGroup | string[];
   period: string;
   summary: string;
   summaryList: string[];
   details: Detail[];
+}
+
+export interface TechStackGroup {
+  frontend: string[];
+  visualization?: string[];
+  QA?: string[];
+  Automation?: string[];
 }
 
 export interface Detail {

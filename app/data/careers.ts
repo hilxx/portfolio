@@ -100,23 +100,50 @@ export const careers: Career[] = [
         ],
       },
       {
-        title: "AI 디지털 교과서 플랫폼 1차 운영",
-        period: "2024.10 - 2025.02",
+        title: "AI 디지털 교과서 플랫폼 1차 고도화 및 운영",
+        period: "2024.10 - 2025.05",
         description:
-          "AI 디지털 교과서 플랫폼 웹 접근성(KWCAG 2.2) 심사 통과 기여",
-        techStack: ["Vue", "Pinia", "SCSS"],
+          "AI 디지털 교과서 플랫폼 웹 접근성 심사 통과에 기여 및 크로스 브라우징 최적화",
+        techStack: {
+          frontend: ["Vue", "Javascript", "SCSS", "Primevue"],
+          visualization: ["Chart.js"],
+          QA: ["BrowserStack (QA)"],
+          Automation: ["npm script (Automation)"],
+        },
         role: ["Web Publisher"],
-        summary: "AI 디지털 교과서 플랫폼 웹 접근성(KWCAG 2.2) 심사 통과 기여",
+        summary:
+          "AI 디지털 교과서 플랫폼 웹 접근성 심사 통과에 기여 및 크로스 브라우징 최적화",
         summaryList: [
-          "공통 UI 컴포넌트 라이브러리(Vue 3, TS) 구축 및 재사용률 30% 증가",
-          "AI 디지털 교과서 플랫폼 웹 접근성(KWCAG 2.2) 심사 통과 기여",
+          "4개국 다국어(영어·중국어·일본어·베트남어) 대응 및 유연한 반응형 레이아웃 구축",
+          "구형 브라우저(Safari 11-14) 호환성 확보 및 CSS 신규 스펙 폴리필 적용(gap, :has)",
+          "모든 페이지 문법 검사 및 수정 완료 (Primevue css 이슈, 웹 표준에 맞게 마크업 개선)",
+          "npm script 기반 에셋 동기화 자동화로 퍼블리싱-개발 협업 프로세스 최적화",
+          "2차 수정고시를 통한 홈페이지 고도화에 기여",
         ],
         details: [
           {
-            title: "🛠 1. 지능형 에디터 플랫폼 UI/UX 고도화",
+            title: "1. 글로벌 서비스 대응 및 브라우저 최적화",
             contents: [
-              "BaseButton/CustomButton 단일화 및 Variant Map 패턴 도입",
-              "config.key === 'explain' 등 조건부 UI 정교화",
+              "4개국 다국어 대응 및 언어별 텍스트 길이에 따른 유동적 레이아웃(Flexible Layout) 구현",
+              "Chart.js 활용 시 다국어/태블릿 환경에서 텍스트가 잘리는 이슈를 차트 옵션 최적화 및 동적 리사이징 로직으로 해결",
+              "Safari 11~14 등 구형 브라우저에서의 CSS gap 미지원 이슈 분석 및 대체 스타일링(Margin/Padding) 적용",
+              "크로스 브라우징 최적화: gap, :has 폴리필 적용 및 브라우저 호환성 확보",
+              "모든 페이지의 다국어, 반응형, 문법검사 QA를 통한 크로스 브라우징 및 레이아웃 결함 0건 달성",
+            ],
+          },
+          {
+            title: "2. 퍼블리싱-개발 협업 프로세스 최적화",
+            contents: [
+              "초/중고등 별 퍼블리싱 파일(SCSS, Images)의 독립적 관리를 위한 에셋 동기화 스크립트(ux:dev) 활용 및 레포지토리 간 코드 간섭 최소화",
+              "유동적 콘텐츠 대응을 위한 반응형 팝업 가이드 모델 설계 및 개발용 UI 가이드라인 제공",
+            ],
+          },
+          {
+            title: "3. 사용자 피드백 기반 UI/UX 고도화 (2차 수정고시 반영)",
+            contents: [
+              "실사용자 피드백 기반 2차 수정고시 기획안 반영을 통한 교육 플랫폼 UX 고도화 및 서비스 사용성 최적화",
+              "현장적합성 오류/개선 및 사용자 피드백 반영 완료 - 홈 배치 변경, 실시간 모니터링 민감 정보 명확 제시, 챗봇 비활성화 설정 추가",
+              "개인정보보호 안내 팝업 및 이용안내 페이지 추가",
             ],
           },
         ],

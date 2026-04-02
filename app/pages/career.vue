@@ -41,11 +41,12 @@
                     <span class="date">{{ project.period }}</span>
                     <div class="tech-tags">
                       <span
-                        v-for="tech in project.techStack"
-                        :key="tech"
-                        class="tag--tech"
-                        >{{ tech }}</span
+                        v-for="tech in getFormattedTechStack(project.techStack)"
+                        :key="`${project.title}-${tech.type}-${tech.name}`"
+                        :class="['tag--tech', `tag--${tech.type}`]"
                       >
+                        {{ tech.name }}
+                      </span>
                     </div>
                   </div>
 
@@ -117,8 +118,29 @@
 </template>
 
 <script setup lang="ts">
-import {careers} from "@/data/careers";
-import {ref, onMounted, onBeforeUnmount} from "vue";
+import { careers } from "@/data/careers";
+import type { TechStackGroup } from "@/types/career";
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
+
+// 프로젝트별로 기술 스택을 평탄화(Flatten)하여 카테고리 정보와 함께 반환
+const getFormattedTechStack = (techStack: TechStackGroup | string[]) => {
+  if (Array.isArray(techStack)) {
+    return techStack.map((name) => ({ name, type: "frontend" }));
+  }
+
+  return [
+    ...(techStack.frontend || []).map((name) => ({ name, type: "frontend" })),
+    ...(techStack.visualization || []).map((name) => ({
+      name,
+      type: "visualization",
+    })),
+    ...(techStack.QA || []).map((name) => ({ name, type: "qa" })),
+    ...(techStack.Automation || []).map((name) => ({
+      name,
+      type: "automation",
+    })),
+  ];
+};
 
 const activeProjectKey = ref("0-0"); // 초기값: 첫 회사, 첫 프로젝트
 const timelineRefs = ref<HTMLElement[]>([]);
@@ -139,7 +161,7 @@ const toggleDetailOpen = (careerIdx: number, projectIdx: number) => {
   };
 };
 const setTimelineItem = (
-  el: Element | {$el?: Element} | null,
+  el: Element | { $el?: Element } | null,
   careerIdx: number,
   pIdx: number,
 ) => {
