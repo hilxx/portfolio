@@ -187,7 +187,7 @@ select:focus,
 button:active,
 button:focus {
   /* outline: 0 사용여부는 추후에.. */
-  outline: 0.3rem dashed #000;
+  outline: 0.2rem dashed #000;
 }
 
 ::placeholder {
@@ -207,6 +207,12 @@ a,
 button,
 label {
   cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 }
 
 button {

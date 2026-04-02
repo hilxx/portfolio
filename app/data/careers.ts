@@ -152,7 +152,7 @@ export const careers: Career[] = [
   },
   {
     type: "Agency",
-    company: "한국홍보디자인세터",
+    company: "한국홍보디자인센터",
     role: ["Web Publisher", "Web Designer"],
     period: "2023.07 - 2024.10",
     link: "/career",

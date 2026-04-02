@@ -61,7 +61,13 @@
 }
 
 // Display
-@mixin flex($flex: flex, $align: center, $justify: flex-start, $direction: row, $wrap: wrap) {
+@mixin flex(
+  $flex: flex,
+  $align: center,
+  $justify: flex-start,
+  $direction: row,
+  $wrap: wrap
+) {
   display: $flex;
   flex-wrap: $wrap;
   align-items: $align;
@@ -69,7 +75,13 @@
   flex-direction: $direction;
 }
 
-@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+@mixin position(
+  $position,
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null
+) {
   position: $position;
   top: $top;
   right: $right;
@@ -246,17 +258,36 @@ $desktop: 1420px;
 // UDL focus
 @mixin focus-outline {
   body.user-is-tabbing & {
-    outline: 0.3rem dashed #000 !important;
+    outline: 0.2rem dashed #000 !important;
   }
 }
 
 @mixin focus-shadow {
   outline: none !important;
   background-image:
-    repeating-linear-gradient(to right, #000 0 0.3rem, transparent 0.6rem 0.9rem),
-    /* top */ repeating-linear-gradient(to right, #000 0 0.3rem, transparent 0.6rem 0.9rem),
-    /* bottom */ repeating-linear-gradient(to bottom, #000 0 0.3rem, transparent 0.6rem 0.9rem),
-    /* left */ repeating-linear-gradient(to bottom, #000 0 0.3rem, transparent 0.6rem 0.9rem) !important;
+    repeating-linear-gradient(
+      to right,
+      #000 0 0.3rem,
+      transparent 0.6rem 0.9rem
+    ),
+    /* top */
+      repeating-linear-gradient(
+        to right,
+        #000 0 0.3rem,
+        transparent 0.6rem 0.9rem
+      ),
+    /* bottom */
+      repeating-linear-gradient(
+        to bottom,
+        #000 0 0.3rem,
+        transparent 0.6rem 0.9rem
+      ),
+    /* left */
+      repeating-linear-gradient(
+        to bottom,
+        #000 0 0.3rem,
+        transparent 0.6rem 0.9rem
+      ) !important;
   /* right */
   background-size:
     100% 0.3rem,

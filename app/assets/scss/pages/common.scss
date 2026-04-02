@@ -23,3 +23,35 @@ section {
     @include font-style(1.2rem, 700, var(--hilee-accent), 1.2);
   }
 }
+
+.bullet-list {
+  display: flex;
+  flex-direction: column;
+
+  &__circle {
+    li {
+      &::before {
+        content: "•" !important;
+      }
+    }
+  }
+
+  li {
+    font-size: 1rem;
+    color: var(--hilee-gray-8);
+    position: relative;
+    padding-left: 0.8rem;
+    margin-bottom: 0.8rem;
+
+    &::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+      color: var(--hilee-gray-8);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

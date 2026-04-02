@@ -6,7 +6,7 @@
       class="career-group"
     >
       <section class="company">
-        <p class="intro__tag">Company {{ careerIndex + 1 }}</p>
+        <p class="intro__tag">{{ career.type }}</p>
         <div class="company__intro">
           <h1 class="company__name">{{ career.company }}</h1>
           <div class="company__role">
@@ -39,6 +39,10 @@
                 <div class="career-card">
                   <div class="career-card__header">
                     <span class="date">{{ project.period }}</span>
+                    <h2 class="project-name">{{ project.title }}</h2>
+                  </div>
+
+                  <div class="career-card__body">
                     <div class="tech-tags">
                       <span
                         v-for="tech in getFormattedTechStack(project.techStack)"
@@ -48,10 +52,6 @@
                         {{ tech.name }}
                       </span>
                     </div>
-                  </div>
-
-                  <div class="career-card__body">
-                    <h2 class="company-name">{{ project.title }}</h2>
 
                     <p class="summary">{{ project.summary }}</p>
 
@@ -90,9 +90,13 @@
                         :key="`${project.title}-detail-${detailIndex}`"
                         class="detail-section"
                       >
-                        <h3>{{ detail.title }}</h3>
-                        <p>{{ detail.contribution }}</p>
-                        <ul>
+                        <h3 class="detail-section__title">
+                          {{ detail.title }}
+                        </h3>
+                        <p class="detail-section__desc">
+                          {{ detail.contribution }}
+                        </p>
+                        <ul class="bullet-list bullet-list__circle">
                           <li
                             v-for="(content, contentIndex) in detail.contents"
                             :key="`${project.title}-detail-${detailIndex}-content-${contentIndex}`"

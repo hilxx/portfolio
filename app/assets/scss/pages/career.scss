@@ -1,6 +1,12 @@
 @use "@/assets/scss/abstracts/_mixin.scss" as *;
 
 // 경력 페이지
+.career-group {
+  & + .career-group {
+    margin-top: 10rem;
+  }
+}
+
 .company {
   .intro__tag {
     margin-bottom: 1rem;
@@ -105,6 +111,11 @@
       .career-card {
         box-shadow: 0 10px 25px rgba(var(--hilee-blue-10), 0.05);
         border-color: var(--hilee-primary);
+
+        &::before {
+          border-left-color: var(--hilee-primary);
+          border-bottom-color: var(--hilee-primary);
+        }
       }
     }
   }
@@ -121,152 +132,141 @@
     transition: all 0.3s ease;
     z-index: 1;
   }
-}
 
-.career-card {
-  flex: 1;
-  background-color: var(--hilee-white);
-  border: 1px solid var(--hilee-blue-9);
-  border-radius: 16px;
-  padding: 30px;
-  position: relative;
-  transition: border-color 0.3s ease;
-
-  // 말풍선 날개 효과
-  &::before {
-    content: "";
-    position: absolute;
-    top: 32px;
-    left: -10px;
-    width: 20px;
-    height: 20px;
+  .career-card {
+    flex: 1;
     background-color: var(--hilee-white);
-    border-left: 1px solid var(--hilee-blue-9);
-    border-bottom: 1px solid var(--hilee-blue-9);
-    transform: rotate(45deg);
+    border: 1px solid var(--hilee-blue-9);
+    border-radius: 16px;
+    padding: 30px;
+    position: relative;
     transition: border-color 0.3s ease;
-  }
 
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-
-    .date {
-      font-size: 0.9rem;
-      color: var(--hilee-blue-11);
+    // 말풍선 날개 효과
+    &::before {
+      content: "";
+      position: absolute;
+      top: 32px;
+      left: -10px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--hilee-white);
+      border-left: 1px solid var(--hilee-blue-9);
+      border-bottom: 1px solid var(--hilee-blue-9);
+      transform: rotate(45deg);
+      transition: border-color 0.3s ease;
     }
 
-    .type-tag {
-      font-size: 0.8rem;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-weight: 500;
+    &__header {
+      margin-bottom: 15px;
 
-      &.in-house {
-        background-color: rgba(var(--hilee-primary), 0.1);
-        color: var(--hilee-primary);
-      }
-      &.agency {
-        background-color: rgba(#4ade80, 0.1);
-        color: #166534; // 깊은 초록색
-      }
-    }
-  }
-
-  .company-name {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--hilee-blue-10);
-    margin-bottom: 10px;
-  }
-
-  .summary {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: var(--hilee-blue-10);
-    margin-bottom: 25px;
-  }
-
-  .bullet-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    li {
-      font-size: 0.95rem;
-      color: var(--hilee-blue-10);
-      position: relative;
-      padding-left: 15px;
-
-      &::before {
-        content: "-";
-        position: absolute;
-        left: 0;
+      .date {
+        font-size: 0.9rem;
         color: var(--hilee-blue-11);
       }
-    }
-  }
 
-  &__footer {
-    margin-top: 1.25rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--hilee-blue-9);
-  }
-
-  .btn--more {
-    @include font-style(0.95rem, 600, var(--hilee-primary), 1.4);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.5rem 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
-
-    &:hover {
-      opacity: 0.85;
+      .project-name {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--hilee-blue-10);
+        margin: 1rem 0 0.5rem;
+      }
     }
 
-    &:focus-visible {
-      outline: 2px solid var(--hilee-primary);
-      outline-offset: 2px;
-      border-radius: 4px;
+    &__body {
+      .tech-tags {
+        display: flex;
+        margin-bottom: 1rem;
+        .tag--tech {
+          font-size: 0.8rem;
+          font-weight: 500;
+          padding: 0.2rem 0.8rem;
+          border-radius: 1.2rem;
+          border: 1px solid var(--hilee-blue-1);
+          color: var(--hilee-blue-1);
+          background-color: var(--hilee-blue-4);
+          margin-right: 0.5rem;
+          @include flex($align: center, $justify: center);
+          text-align: center;
+
+          &.tag--visualization {
+            background-color: var(--hilee-white-1);
+            color: var(--hilee-red-2);
+            border: 1px solid var(--hilee-red-3);
+          }
+
+          &.tag--qa {
+            background-color: var(--hilee-orange-5);
+            color: var(--hilee-orange-2);
+            border: 1px solid var(--hilee-red-3);
+          }
+
+          &.tag--automation {
+            background-color: var(--hilee-green-3);
+            color: var(--hilee-green-2);
+            border: 1px solid var(--hilee-green-5);
+          }
+        }
+      }
+
+      .summary {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
     }
-  }
 
-  .career-detail-panel {
-    margin-top: 1rem;
-    padding-top: 0.25rem;
-    overflow: hidden;
-  }
+    &__footer {
+      margin-top: 1.35rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--hilee-blue-9);
 
-  .detail-section {
-    padding: 1rem 1.1rem;
-    background: rgba(var(--hilee-blue-10), 0.04);
-    border: 1px solid var(--hilee-blue-9);
-    border-radius: 12px;
+      .btn--more {
+        @include font-style(0.95rem, 600, var(--hilee-blue-1), 1.4);
+        display: inline-flex;
+        align-items: center;
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
 
-    h3 {
-      @include font-style(1rem, 600, var(--hilee-blue-10), 1.45);
-      margin: 0 0 0.75rem;
+        &:hover {
+          opacity: 0.85;
+        }
+      }
     }
 
-    ul {
-      margin: 0;
-      padding-left: 1.15rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+    .career-detail-panel {
+      margin-top: 1rem;
+      padding-top: 0.25rem;
+      overflow: hidden;
 
-    li {
-      @include font-style(0.92rem, 400, var(--hilee-blue-10), 1.55);
+      .detail-section {
+        padding: 1rem 1.1rem;
+        background: rgba(var(--hilee-blue-10), 0.04);
+        border: 1px solid var(--hilee-blue-9);
+        border-radius: 12px;
+
+        &__title {
+          @include font-style(1rem, 600, var(--hilee-blue-10), 1.45);
+        }
+
+        &__desc {
+          @include font-style(0.9rem, 600, var(--hilee-blue-10), 1.45);
+        }
+
+        .bullet-list {
+          padding-left: 0.8rem;
+          margin-top: 0.7rem;
+
+          li {
+            @include font-style(0.85rem, 400, var(--hilee-blue-10), 1.4);
+            margin-bottom: 0.5rem;
+          }
+        }
+
+        & + .detail-section {
+          margin-top: 1rem;
+        }
+      }
     }
   }
 }
