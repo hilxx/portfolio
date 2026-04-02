@@ -15,4 +15,11 @@ export interface ProjectList {
   period: string;
   summary: string;
   summaryList: string[];
+  details: Detail[];
+}
+
+export interface Detail {
+  title: string;
+  contribution?: string;
+  contents: string[];
 }

@@ -175,32 +175,11 @@
     }
   }
 
-  .role {
+  .company-name {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--hilee-blue-10);
     margin-bottom: 10px;
-  }
-
-  .company-info {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    font-size: 1rem;
-    color: var(--hilee-blue-10);
-
-    .company-name {
-      font-weight: 500;
-    }
-
-    .location {
-      color: var(--hilee-blue-11);
-      &::before {
-        content: "|";
-        margin-right: 10px;
-        color: var(--hilee-blue-9);
-      }
-    }
   }
 
   .summary {
@@ -231,6 +210,78 @@
       }
     }
   }
+
+  &__footer {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--hilee-blue-9);
+  }
+
+  .btn--more {
+    @include font-style(0.95rem, 600, var(--hilee-primary), 1.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--hilee-primary);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+  }
+
+  .career-detail-panel {
+    margin-top: 1rem;
+    padding-top: 0.25rem;
+    overflow: hidden;
+  }
+
+  .detail-section {
+    padding: 1rem 1.1rem;
+    background: rgba(var(--hilee-blue-10), 0.04);
+    border: 1px solid var(--hilee-blue-9);
+    border-radius: 12px;
+
+    h3 {
+      @include font-style(1rem, 600, var(--hilee-blue-10), 1.45);
+      margin: 0 0 0.75rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    li {
+      @include font-style(0.92rem, 400, var(--hilee-blue-10), 1.55);
+    }
+  }
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
 }
 
 .trouble-shooting {
