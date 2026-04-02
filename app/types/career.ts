@@ -25,7 +25,10 @@ export interface TechStackGroup {
   automation?: string[];
 }
 
+export type DetailKind = "troubleshooting";
+
 export interface Detail {
+  type?: DetailKind;
   title: string;
   contribution?: string;
   contents: string[];

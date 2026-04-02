@@ -1,4 +1,4 @@
-import type { Career } from "../types/career";
+import type {Career} from "../types/career";
 
 export const careers: Career[] = [
   {
@@ -154,6 +154,15 @@ export const careers: Career[] = [
               "실사용자 피드백 기반 2차 수정고시 기획안 반영을 통한 교육 플랫폼 UX 고도화 및 서비스 사용성 최적화",
               "현장적합성 오류/개선 및 사용자 피드백 반영 완료 - 홈 배치 변경, 실시간 모니터링 민감 정보 명확 제시, 챗봇 비활성화 설정 추가",
               "개인정보보호 안내 팝업 및 이용안내 페이지 추가",
+            ],
+          },
+          {
+            type: "troubleshooting",
+            title: "4. 환경 간 마크업 불일치 이슈 해결",
+            contents: [
+              "로컬 가이드와 개발 실서버 간의 마크업 구조 차이로 발생하는 레이아웃 결함 분석 및 해결",
+              "개발 환경 특성상 추가되는 Wrapper 요소에 영향받지 않는 유연한 CSS 선택자 체계 설계",
+              "환경별 코드 동기화의 한계를 기술적 로직(CSS 변수 및 유동적 레이아웃)으로 극복하여 UI 일관성 유지",
             ],
           },
         ],

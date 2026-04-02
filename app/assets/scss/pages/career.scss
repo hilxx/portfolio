@@ -251,6 +251,14 @@
         border: 1px solid var(--hilee-blue-9);
         border-radius: 12px;
 
+        &__type {
+          font-size: 0.8rem;
+          font-weight: 500;
+          color: var(--hilee-orange-2);
+          margin-bottom: 0.5rem;
+          display: inline-block;
+        }
+
         &__title {
           @include font-style(1rem, 600, var(--hilee-blue-10), 1.45);
         }
@@ -259,6 +267,10 @@
           @include font-style(0.9rem, 600, var(--hilee-black), 1.45);
           margin-top: 0.5rem;
           padding-left: 0.8rem;
+        }
+
+        &__troubleshooting {
+          border-color: var(--hilee-orange-2);
         }
 
         .bullet-list {

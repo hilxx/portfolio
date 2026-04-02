@@ -89,21 +89,29 @@
                         v-for="(detail, detailIndex) in project.details ?? []"
                         :key="`${project.title}-detail-${detailIndex}`"
                         class="detail-section"
+                        :class="{
+                          'detail-section__troubleshooting':
+                            detail.type === 'troubleshooting',
+                        }"
                       >
-                        <h3 class="detail-section__title">
-                          {{ detail.title }}
-                        </h3>
-                        <p class="detail-section__desc">
-                          {{ detail.contribution }}
-                        </p>
-                        <ul class="bullet-list bullet-list__circle">
-                          <li
-                            v-for="(content, contentIndex) in detail.contents"
-                            :key="`${project.title}-detail-${detailIndex}-content-${contentIndex}`"
+                        <div class="detail-section__contents">
+                          <span
+                            v-if="detail.type === 'troubleshooting'"
+                            class="detail-section__type"
+                            >Trouble Shooting</span
                           >
-                            {{ content }}
-                          </li>
-                        </ul>
+                          <h3 class="detail-section__title">
+                            {{ detail.title }}
+                          </h3>
+                          <ul class="bullet-list bullet-list__circle">
+                            <li
+                              v-for="(content, contentIndex) in detail.contents"
+                              :key="`${project.title}-detail-${detailIndex}-ts-${contentIndex}`"
+                            >
+                              {{ content }}
+                            </li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </transition>
@@ -122,24 +130,24 @@
 </template>
 
 <script setup lang="ts">
-import { careers } from "@/data/careers";
-import type { TechStackGroup } from "@/types/career";
-import { ref, computed, onMounted, onBeforeUnmount } from "vue";
+import {careers} from "@/data/careers";
+import type {TechStackGroup} from "@/types/career";
+import {ref, onMounted, onBeforeUnmount} from "vue";
 
 // 프로젝트별로 기술 스택을 평탄화(Flatten)하여 카테고리 정보와 함께 반환
 const getFormattedTechStack = (techStack: TechStackGroup | string[]) => {
   if (Array.isArray(techStack)) {
-    return techStack.map((name) => ({ name, type: "frontend" }));
+    return techStack.map((name) => ({name, type: "frontend"}));
   }
 
   return [
-    ...(techStack.frontend || []).map((name) => ({ name, type: "frontend" })),
-    ...(techStack.backend || []).map((name) => ({ name, type: "backend" })),
+    ...(techStack.frontend || []).map((name) => ({name, type: "frontend"})),
+    ...(techStack.backend || []).map((name) => ({name, type: "backend"})),
     ...(techStack.visualization || []).map((name) => ({
       name,
       type: "visualization",
     })),
-    ...(techStack.qa || []).map((name) => ({ name, type: "qa" })),
+    ...(techStack.qa || []).map((name) => ({name, type: "qa"})),
     ...(techStack.automation || []).map((name) => ({
       name,
       type: "automation",
@@ -166,7 +174,7 @@ const toggleDetailOpen = (careerIdx: number, projectIdx: number) => {
   };
 };
 const setTimelineItem = (
-  el: Element | { $el?: Element } | null,
+  el: Element | {$el?: Element} | null,
   careerIdx: number,
   pIdx: number,
 ) => {
