@@ -134,12 +134,13 @@ const getFormattedTechStack = (techStack: TechStackGroup | string[]) => {
 
   return [
     ...(techStack.frontend || []).map((name) => ({ name, type: "frontend" })),
+    ...(techStack.backend || []).map((name) => ({ name, type: "backend" })),
     ...(techStack.visualization || []).map((name) => ({
       name,
       type: "visualization",
     })),
-    ...(techStack.QA || []).map((name) => ({ name, type: "qa" })),
-    ...(techStack.Automation || []).map((name) => ({
+    ...(techStack.qa || []).map((name) => ({ name, type: "qa" })),
+    ...(techStack.automation || []).map((name) => ({
       name,
       type: "automation",
     })),

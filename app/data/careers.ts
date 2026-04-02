@@ -10,11 +10,14 @@ export const careers: Career[] = [
     projects: [
       {
         title: "AI 저작도구 2차 개발",
-        period: "2026.03 - 2026.04",
-        description: "AI 저작도구 2차 기획 및 개발 진행",
-        techStack: ["Vue", "Pinia", "SCSS", "Nuxt", "TypeScript"],
+        period: "2026.02 - 2026.04",
+        techStack: {
+          frontend: ["Vue", "Pinia", "SCSS", "Nuxt", "TypeScript"],
+          backend: ["Spring Boot", "Docker", "Naver VPN", "Java"],
+          automation: ["Gradle"],
+        },
         role: ["Frontend Developer"],
-        summary: "프론트엔드 개발 및 UI 시스템 설계",
+        summary: "AI 저작도구 2차 기획 및 프론트엔드 개발 및 UI 시스템 설계",
         summaryList: [
           "컴포넌트 주도 개발(CDD): 템플릿 및 요소별 UI를 원자 단위로 분리하여 재사용성을 극대화하고, 복잡한 에디터 화면의 데이터 바인딩 구조 개선.",
           "라우팅 및 상태 관리 최적화: 동적 라우팅 이슈 해결 및 고도화된 UI 상태 관리 로직 설계.",
@@ -22,18 +25,31 @@ export const careers: Career[] = [
         ],
         details: [
           {
-            title: "1. 지능형 에디터 플랫폼 UI/UX 고도화",
+            title: "1. 대규모 스타일 및 마크업 시스템 리팩토링",
+            contribution:
+              "무분별한 클래스명 및 중복 SCSS 구조를 개선하기 위한 스타일 시스템을 리팩토링하여 유지보수성 향상과 온보딩 시간 단축에 기여했습니다.",
+            contents: [
+              "AI로 생성된 무분별한 중복 SCSS 구조와 파편화된 클래스 체계를 BEM 방법론 기반으로 전면 재설계",
+              "Vite 빌드 설정(additionalData) 최적화 및 Sass 모듈 시스템(@use, @forward) 도입으로 전역 스타일 의존성 문제 해결",
+              "컴포넌트 1:1 매칭 전략을 통한 스타일 추적성 확보 및 <style scoped> 내 인라인 스타일을 외부 파일로 분리하여 코드 가독성 개선",
+              "중복된 Mixin 및 Color 변수 체계를 정규화하여 디자인 시스템의 일관성 및 테마 확장성 강화",
+              "불필요한 레거시 컴포넌트 및 미사용 SCSS 파일 제거를 통한 프로젝트 빌드 최적화 및 유지보수 공수 효율화",
+            ],
+          },
+          {
+            title: "2. AI 에디터 플랫폼 UI/UX 고도화",
             contribution:
               "복잡한 교육용 콘텐츠 에디터의 UI 컴포넌트 시스템을 구축하고 속성 패널의 로직을 설계했습니다.",
             contents: [
               "BaseButton과 CustomButton으로 파편화된 컴포넌트를 단일화하고, Record/Variant Map 패턴을 도입하여 무분별한 Props 증가 없이 확장 가능한 버튼 시스템 구축.",
+              "반복되는 마크업을 공통 컴포넌트화하여 개발 효율성 증가.",
               "공용 소형 컴포넌트와 Slot을 활용하여 URL 입력 패널 등 반복되는 마크업 구조를 공통화하여 코드 중복 60% 제거.",
               "조건별 UI 제어: 특정 Key(explain, incorrect)에 따른 영역 노출 로직을 설정값(config) 기반으로 정교화하여 복잡한 사용자 설정 시나리오 대응.",
-              "피드백 시스템 고도화: 이미지/효과음 업로드 로직을 v-for와 행 설정 배열로 추상화하여 유지보수성 향상 및 파일 규격(accept, MAX_SIZE) 유효성 검사 적용.",
+              "피드백 시스템 고도화: 이미지/효과음 업로드 로직을 v-for와 행 설정 배열로 추상화하여 유지보수성 향상",
             ],
           },
           {
-            title: "2. 커스텀 오디오 플레이어 모듈 개발",
+            title: "3. 커스텀 오디오 플레이어 모듈 개발",
             contribution:
               "다양한 학습 환경에 대응하는 범용 오디오 플레이어 컴포넌트를 개발했습니다.",
             contents: [
@@ -44,7 +60,7 @@ export const careers: Career[] = [
             ],
           },
           {
-            title: "3. 시스템 아키텍처 및 라우팅 최적화",
+            title: "4. 시스템 아키텍처 및 라우팅 최적화",
             contribution: "",
             contents: [
               '라우팅 이슈 해결: 동일 부모 라우트 내 URL 변경 시 화면 미갱신 문제를 router-view에 `:key="route.fullPath"`를 적용하여 컴포넌트 재마운트를 유도함으로써 해결.',
@@ -56,8 +72,6 @@ export const careers: Career[] = [
       {
         title: "AI 저작도구 1차 리팩토링",
         period: "2026.02 - 2026.03",
-        description:
-          "AI 저작도구 1차 리팩토링 및 공통 컴포넌트 개선으로 개발 진행률 20일 앞당김",
         techStack: ["Vue", "Pinia", "SCSS", "Nuxt", "TypeScript"],
         role: ["Frontend Developer"],
         summary:
@@ -79,8 +93,6 @@ export const careers: Career[] = [
       {
         title: "AI 디지털 교과서 플랫폼 2차 구축",
         period: "2024.10 - 재직중",
-        description:
-          "AI 디지털 교과서 플랫폼 웹 접근성(KWCAG 2.2) 심사 통과 기여",
         techStack: ["Vue", "Pinia", "SCSS"],
         role: ["Web Publisher", "Frontend Developer"],
         summary: "AI 디지털 교과서 플랫폼 웹 접근성(KWCAG 2.2) 심사 통과 기여",
@@ -102,13 +114,11 @@ export const careers: Career[] = [
       {
         title: "AI 디지털 교과서 플랫폼 1차 고도화 및 운영",
         period: "2024.10 - 2025.05",
-        description:
-          "AI 디지털 교과서 플랫폼 웹 접근성 심사 통과에 기여 및 크로스 브라우징 최적화",
         techStack: {
           frontend: ["Vue", "Javascript", "SCSS", "Primevue"],
           visualization: ["Chart.js"],
-          QA: ["BrowserStack (QA)"],
-          Automation: ["npm script (Automation)"],
+          qa: ["BrowserStack (qa)"],
+          automation: ["npm script (automation)"],
         },
         role: ["Web Publisher"],
         summary:
@@ -128,7 +138,7 @@ export const careers: Career[] = [
               "Chart.js 활용 시 다국어/태블릿 환경에서 텍스트가 잘리는 이슈를 차트 옵션 최적화 및 동적 리사이징 로직으로 해결",
               "Safari 11~14 등 구형 브라우저에서의 CSS gap 미지원 이슈 분석 및 대체 스타일링(Margin/Padding) 적용",
               "크로스 브라우징 최적화: gap, :has 폴리필 적용 및 브라우저 호환성 확보",
-              "모든 페이지의 다국어, 반응형, 문법검사 QA를 통한 크로스 브라우징 및 레이아웃 결함 0건 달성",
+              "모든 페이지의 다국어, 반응형, 문법검사 qa를 통한 크로스 브라우징 및 레이아웃 결함 0건 달성",
             ],
           },
           {
@@ -159,8 +169,6 @@ export const careers: Career[] = [
     projects: [
       {
         title: "AI 디지털 교과서 플랫폼",
-        description:
-          "AI 디지털 교과서 플랫폼 웹 접근성(KWCAG 2.2) 심사 통과 기여",
         techStack: ["Vue", "Pinia", "SCSS"],
         role: ["Web Publisher", "Frontend Developer"],
         period: "2023.07 - 2024.10",
@@ -182,8 +190,6 @@ export const careers: Career[] = [
       },
       {
         title: "AI 디지털 교과서 플랫폼",
-        description:
-          "AI 디지털 교과서 플랫폼 웹 접근성(KWCAG 2.2) 심사 통과 기여",
         techStack: ["Vue", "Pinia", "SCSS"],
         role: ["Web Publisher", "Frontend Developer"],
         period: "2023.07 - 2024.10",

@@ -9,7 +9,6 @@ export interface Career {
 
 export interface ProjectList {
   title: string;
-  description: string;
   role: string[];
   techStack: TechStackGroup | string[];
   period: string;
@@ -20,9 +19,10 @@ export interface ProjectList {
 
 export interface TechStackGroup {
   frontend: string[];
+  backend?: string[];
   visualization?: string[];
-  QA?: string[];
-  Automation?: string[];
+  qa?: string[];
+  automation?: string[];
 }
 
 export interface Detail {

@@ -29,7 +29,7 @@
     </section>
 
     <section class="projects">
-      <h2 class="section__title">프로젝트</h2>
+      <h2 class="section__title">주요 프로젝트</h2>
       <Swiper
         class="projects-carousel"
         :modules="[Navigation]"
@@ -57,10 +57,10 @@
 import "swiper/css";
 import "swiper/css/navigation";
 
-import {Swiper, SwiperSlide} from "swiper/vue";
-import {Navigation} from "swiper/modules";
-import {careers} from "@/data/careers";
-import {projects} from "@/data/projects";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation } from "swiper/modules";
+import { careers } from "@/data/careers";
+import { projects } from "@/data/projects";
 
 const profile = {
   name: "hilee",
@@ -70,9 +70,9 @@ const profile = {
 
 // 반응형: 기본 4개, 모바일에서 2/1개로 변경
 const breakpoints = {
-  0: {slidesPerView: 1},
-  640: {slidesPerView: 2},
-  1024: {slidesPerView: 4},
+  0: { slidesPerView: 1 },
+  640: { slidesPerView: 2 },
+  1024: { slidesPerView: 4 },
 };
 </script>
 

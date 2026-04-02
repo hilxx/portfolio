@@ -189,6 +189,12 @@
           @include flex($align: center, $justify: center);
           text-align: center;
 
+          &.tag--backend {
+            background-color: var(--hilee-purple-3);
+            color: var(--hilee-purple-2);
+            border: 1px solid var(--hilee-purple-1);
+          }
+
           &.tag--visualization {
             background-color: var(--hilee-white-1);
             color: var(--hilee-red-2);
@@ -250,7 +256,9 @@
         }
 
         &__desc {
-          @include font-style(0.9rem, 600, var(--hilee-blue-10), 1.45);
+          @include font-style(0.9rem, 600, var(--hilee-black), 1.45);
+          margin-top: 0.5rem;
+          padding-left: 0.8rem;
         }
 
         .bullet-list {
