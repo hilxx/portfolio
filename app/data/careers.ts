@@ -91,6 +91,67 @@ export const careers: Career[] = [
         ],
       },
       {
+        title: "AI 연수원 학습창",
+        period: "2025.10 - 2025.12",
+        techStack: {
+          frontend: [
+            "Vue3",
+            "SCSS",
+            "Vue Router",
+            "Vite",
+            "Nuxt",
+            "TypeScript",
+          ],
+          backend: ["MCP"],
+          visualization: ["Figma (MCP)"],
+          automation: ["Cursor AI (Vibe)", "GitLab CI/CD"],
+        },
+        role: ["Web Publisher", "Frontend Developer"],
+        summary: "Cursor AI와 Figma MCP를 이용한 AI 연수원 학습창 구축",
+        summaryList: [
+          "피그마 MCP를 활용하여 학습창 디자인 및 화면 개발",
+          "바이브 코딩을 통한 코드 자동 생성 및 개선을 통해 개발 효율성 증가",
+        ],
+        details: [
+          {
+            title: "1. 사용자 경험(UX) 고도화",
+            contents: [
+              "문법검사 및 다국어 대응 UI 개발",
+              "UDL 적용하여 문서 구조화 및 접근성 향상",
+              "zoom 효과에 따른 svg 이미지 크기 조절 및 화면 비율 유지",
+              "플로팅 AI 챗봇 캐릭터에 인라인 SVG와 CSS @keyframes를 조합해 눈·표정 순차 애니메이션을 구현하고, 교육 단계별 mixin 기반 스타일 분기로 시각 스펙을 맞춤.",
+            ],
+          },
+          {
+            title: "2. 시스템 효율성 및 코드 재사용성에 기여",
+            contents: [
+              "공통 상태 안내 페이지(Error/Notice) 통합 아키텍처 설계",
+              "상황별(로그인 필요, 불안정, 404 등)로 파편화된 안내 페이지를 URL 파라미터 기반의 단일 공통 컴포넌트로 통합",
+              "Computed 기반의 동적 메시지 매핑 로직을 구현하여 코드 중복을 80% 이상 제거하고 유지보수 편의성 증대",
+              "파라미터 쿼리 스트링(URLSearchParams)을 활용한 상태 제어로 별도의 라우트 추가 없이 다양한 사용자 시나리오에 유연하게 대응",
+            ],
+          },
+          {
+            title: "3. Jira를 이용한 프로젝트 관리 및 이슈 추적",
+            contents: [
+              "Jira 티켓 시스템을 활용하여 배포 일정 수립 및 스프린트 단위의 Task 가시화로 개발 병목 구간 사전 차단",
+              "이슈 우선순위 정책에 따른 작업 스케줄링 최적화 및 긴급 버그(Hotfix) 발생 시 즉각적인 티켓 생성 및 대응 프로세스 수립",
+              "백엔드/기획/디자인 파트와 티켓 내 코멘트 기능을 통한 비동기 소통으로 의사결정 이력 기록 및 커뮤니케이션 비용 절감",
+              "대시보드를 활용한 히스토리 및 진행 상황 공유로 프로젝트 목표 달성률 및 품질 관리 표준화",
+            ],
+          },
+          {
+            type: "troubleshooting",
+            title: "4. 로딩 애니메이션 테마 변수 적용 및 마크업 구조 최적화",
+            contents: [
+              "Sass 함수를 이용한 box-shadow 색상 변환 시 발생하는 변수 이중 관리 및 유지보수 복잡성 문제 분석",
+              "복잡한 스타일 연산 대신 background-color 제어가 가능한 마크업 구조로 개편하여 테마 대응 유연성 확보",
+              "SCSS 커스텀 함수 의존성을 제거하고 렌더링 성능 및 코드 가독성을 동시에 개선",
+            ],
+          },
+        ],
+      },
+      {
         title: "AI 디지털 교과서 플랫폼 2차 구축",
         period: "2025.04 - 2025.12",
         techStack: {
